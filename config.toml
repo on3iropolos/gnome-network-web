@@ -1,0 +1,8 @@
+baseURL = 'https://gnome.network/'
+languageCode = 'en-us'
+title = 'gnome.network'
+theme = 'hugo-theme-console'
+
+[params]
+  description = "Platform Engineer | DevSecOps"
+  author = "on3iropolos"
