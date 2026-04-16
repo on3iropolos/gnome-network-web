@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ .Date | time.Format ":date_medium" }}
+<br/><br/>
+{{ .Content }}
+{{ end }}

@@ -1,9 +1,19 @@
 baseURL = 'https://gnome.network/'
 languageCode = 'en-us'
-title = 'gnome.network'
+title = 'Adelore Lessard'
 theme = 'hugo-theme-console'
 canonicalURL = 'https://gnome.network/'
 
 [params]
-  description = "Platform Engineer | DevSecOps"
-  author = "on3iropolos"
+  description = "AWS Cloud Architect & Technical Leader"
+  author = "Adelore Lessard"
+
+[[params.navlinks]]
+  url = "/"
+  name = "About"
+[[params.navlinks]]
+  url = "/resume/"
+  name = "Resume"
+[[params.navlinks]]
+  url = "/posts/"
+  name = "Blog"
