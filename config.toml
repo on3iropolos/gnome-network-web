@@ -2,6 +2,7 @@ baseURL = 'https://gnome.network/'
 languageCode = 'en-us'
 title = 'gnome.network'
 theme = 'hugo-theme-console'
+canonicalURL = 'https://gnome.network/'
 
 [params]
   description = "Platform Engineer | DevSecOps"
