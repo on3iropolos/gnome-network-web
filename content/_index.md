@@ -3,12 +3,10 @@ title: "About"
 description: "About Adelore Lessard"
 ---
 
-# $ whoami
+# Adelore Lessard
 
-AWS Cloud Architect & Technical Leader with 11+ years of experience building automated, enterprise-scale developer platforms. Security-obsessed, AI-powered nerd who architectures Kubernetes and GitOps workflows to drive high-velocity, zero-vulnerability environments.
+Cloud architect by day. Climb hard, eat well, let things ferment.
 
-## Contact
+## Beyond the Keyboard
 
-- **Email**: [adelore.lessard@gmail.com](mailto:adelore.lessard@gmail.com)
-- **GitHub**: [github.com/on3iropolos](https://github.com/on3iropolos)
-- **LinkedIn**: [linkedin.com/in/adelorelessard](https://www.linkedin.com/in/adelorelessard/)
+I stay restless when offline. Kitesurfing keeps me chasing adrenaline and physical challenge on the ocean—where skill is the only thing that matters. Rock climbing satisfies the problem-solver in me, and contributing to OpenBeta keeps me connected to the climbing community. Fermentation teaches me patience: kimchi, sourdough, hot sauce—lactic acid bacteria are tireless collaborators. Gardening reminds me that slow growth and real stakes exist outside the terminal, and there's always more patience to learn.

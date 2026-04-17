@@ -1,10 +1,12 @@
 ---
-title: "Hugo, Decided"
+title: "Hugo Decided"
 date: 2026-04-16
 summary: "Sub-second builds, Markdown content, Git-based workflow. Static sites for engineers who think in infrastructure."
 ---
 
-# Hugo, Decided
+# Hugo Decided
+
+*2026-04-16*
 
 ## The Problem
 

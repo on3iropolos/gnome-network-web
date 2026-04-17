@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="terminal-output">
+    <div class="terminal-header">
+        <span class="terminal-title">{{ .File.Path | default .Title }}</span>
+        <span class="terminal-date">{{ .Date | time.Format ":date_long" }}</span>
+    </div>
+    <div class="terminal-body">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
