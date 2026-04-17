@@ -212,7 +212,7 @@ figure {
 .ascii-art {
     white-space: pre;
     font-family: var(--font-stack);
-    font-size: 1.0em;
+    font-size: 0.5em;
     color: var(--secondary-color);
     line-height: 1.2;
     margin: 0;
