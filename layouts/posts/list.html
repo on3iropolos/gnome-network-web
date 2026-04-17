@@ -2,7 +2,7 @@
 <div class="terminal-output">
     <div class="terminal-body">
         <div class="posts-list">
-{{ range sort .Pages "Date" "desc" }}
+{{ range .Paginator.Pages }}
     <div class="post">
         <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
         <span class="date">{{ .Date | time.Format "2006-01-02" }}</span>
@@ -10,6 +10,17 @@
     </div>
 {{ end }}
 </div>
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+<div class="pagination">
+    {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
+    {{ end }}
+    <span>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+    {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
+    {{ end }}
+</div>
+{{ end }}
     </div>
 </div>
 {{ end }}

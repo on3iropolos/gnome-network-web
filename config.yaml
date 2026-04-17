@@ -1,0 +1,30 @@
+baseURL: 'https://gnome.network/'
+languageCode: en-us
+title: Adelore Lessard
+theme: shell
+
+pagination:
+  pagerSize: 5
+  path: page
+
+permalinks:
+  posts: /posts/:year/:slug/
+
+sitemap:
+  filename: sitemap.xml
+
+menus:
+  main:
+    - name: about
+      url: /
+    - name: resume
+      url: /resume/
+    - name: posts
+      url: /posts/
+
+params:
+  description: AWS Cloud Architect & Technical Leader
+  author: Adelore Lessard
+  shell:
+    username: user
+    hostname: gnome.network
