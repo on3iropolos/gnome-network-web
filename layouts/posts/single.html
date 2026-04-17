@@ -1,5 +1,7 @@
 {{ define "main" }}
-{{ .Date | time.Format ":date_medium" }}
-<br/><br/>
-{{ .Content }}
+<div class="terminal-output">
+    <div class="terminal-body">
+        {{ .Content }}
+    </div>
+</div>
 {{ end }}

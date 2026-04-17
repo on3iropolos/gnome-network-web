@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}{{ $url := urls.Parse .Page.Permalink }}{{ $url.Path }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <link rel="stylesheet" href="{{ "shell/css/terminal-0.7.4.min.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "shell/css/console.css" | absURL }}">
+    {{- partial "favicon.html" . -}}
+    {{ with .OutputFormats.Get "RSS" }}
+      {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
+    {{ end }}
+    {{- partial "header.html" . -}}
+</head>
+<body class="terminal">
+    <div class="container">
+        <div class="terminal-session">
+            <div class="terminal-prompt">
+              <span class="prompt-user">{{ .Site.Params.shell.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.shell.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.shell.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">echo $ASCI_ART</span>
+            </div>
+            <div class="terminal-ls-output">
+<pre class="ascii-art">░█▀▀▀░█▀▀▄░▄▀▀▄░█▀▄▀█░█▀▀░░░░█▀▀▄░█▀▀░▀█▀░█░░░█░▄▀▀▄░█▀▀▄░█░▄
+░█░▀▄░█░▒█░█░░█░█░▀░█░█▀▀░▄▄░█░▒█░█▀▀░░█░░▀▄█▄▀░█░░█░█▄▄▀░█▀▄
+░▀▀▀▀░▀░░▀░░▀▀░░▀░░▒▀░▀▀▀░▀▀░▀░░▀░▀▀▀░░▀░░░▀░▀░░░▀▀░░▀░▀▀░▀░▀</pre>
+            </div>
+            <div class="terminal-prompt">
+              <span class="prompt-user">{{ .Site.Params.shell.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.shell.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.shell.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">ls</span>
+            </div>
+            <div class="terminal-ls-output">
+              {{ range $index, $element := .Site.Params.navlinks }}
+                <div><a href="{{ absURL .url }}" class="ls-entry">{{ .name }}</a></div>
+              {{ end }}
+            </div>
+            <div class="terminal-prompt terminal-prompt-cursor">
+              <span class="prompt-user">{{ .Site.Params.shell.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.shell.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.shell.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">cat ~/{{ $p := replace (strings.TrimPrefix "/" (strings.TrimSuffix "/" .RelPermalink)) "/" "/" | lower }}{{ if $p }}{{ $p }}.md{{ else }}{{ lower .Title }}.md{{ end }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {{ block "main" . }}
+        {{ end }}
+        {{ partial "footer.html" . }}
+    </div>
+  </body>
+</html>

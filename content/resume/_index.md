@@ -3,15 +3,11 @@ title: "Resume"
 description: "Resume of Adelore Lessard"
 ---
 
-**[Download Resume (PDF)](/resume.pdf)**
+# Adelore Lessard
 
-**Adelore Lessard**
+[Download Resume (PDF)](/resume.pdf) | [adelore.lessard@gmail.com](mailto:adelore.lessard@gmail.com) | [github.com/on3iropolos](https://github.com/on3iropolos) | [linkedin.com/in/adelorelessard](https://www.linkedin.com/in/adelorelessard/)
 
-- **Email**: [adelore.lessard@gmail.com](mailto:adelore.lessard@gmail.com)
-- **GitHub**: [github.com/on3iropolos](https://github.com/on3iropolos)
-- **LinkedIn**: [linkedin.com/in/adelorelessard](https://www.linkedin.com/in/adelorelessard/)
-
-AWS Cloud Architect & Technical Leader with 11+ years of experience building automated, enterprise-scale developer platforms. I am a security-obsessed, AI-powered nerd who architectures Kubernetes and GitOps workflows to drive high-velocity, zero-vulnerability environments. Ever-evolving, continuously curious—let's get to extracting maximum value from your infrastructure and operations.
+AWS Cloud Architect & Technical Leader with 11+ years of experience building automated, enterprise-scale developer platforms. I am a security-obsessed, AI-powered nerd who architects Kubernetes and GitOps workflows to drive high-velocity, zero-vulnerability environments. Ever-evolving, continuously curious—let's get to extracting maximum value from your infrastructure and operations.
 
 ## Tech Stack
 
