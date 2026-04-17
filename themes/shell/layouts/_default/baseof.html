@@ -45,8 +45,8 @@
               <span class="prompt-command">ls</span>
             </div>
             <div class="terminal-ls-output">
-              {{ range $index, $element := .Site.Params.navlinks }}
-                <div><a href="{{ absURL .url }}" class="ls-entry">{{ .name }}</a></div>
+              {{ range .Site.Menus.main }}
+                <div><a href="{{ .URL }}" class="ls-entry">{{ .Name }}</a></div>
               {{ end }}
             </div>
             <div class="terminal-prompt terminal-prompt-cursor">

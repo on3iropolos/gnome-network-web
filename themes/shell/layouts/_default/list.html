@@ -10,16 +10,26 @@
 </div>
 
 <div class="posts-list">
-{{ range sort .Pages "Date" "desc" }}
-    {{ if not .Params.private }}
-        <div class="post">
-            <p>
-                <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
-                <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
-                {{ .Summary }}
-            </p>
-        </div>
+{{ range .Paginator.Pages }}
+    <div class="post">
+        <p>
+            <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
+            <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+            {{ .Summary }}
+        </p>
+    </div>
+{{ end }}
+
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+<div class="pagination">
+    {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
     {{ end }}
+    <span>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+    {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
+    {{ end }}
+</div>
 {{ end }}
 </div>
 
