@@ -1,6 +1,6 @@
 baseURL: 'https://gnome.network/'
 languageCode: en-us
-title: Adelore Lessard
+title: Gnome Network
 theme: shell
 
 pagination:
