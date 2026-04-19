@@ -1,4 +1,4 @@
-FROM klakegg/hugo:ext-debian
+FROM klakegg/hugo:busybox
 
 WORKDIR /src
 

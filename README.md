@@ -29,7 +29,7 @@ Open http://localhost:1313 to view the site. Changes will reload automatically.
 
 ## Tech Stack
 
-- [Hugo](https://gohugo.io/) (Extended)
+- [Hugo](https://gohugo.io/) (Standard)
 - shell theme — terminal-inspired design
 - [GitHub Pages](https://pages.github.com/) for hosting
 
@@ -39,7 +39,7 @@ The development server runs inside a Docker container with Hugo. The project dir
 
 To shell into the container for debugging:
 ```bash
-docker run -it --rm -p 1313:1313 -v "$(pwd):/src" klakegg/hugo:ext-debian sh
+docker run -it --rm -p 1313:1313 -v "$(pwd):/src" klakegg/hugo:busybox sh
 ```
 
 ## Deployment
@@ -61,7 +61,7 @@ MIT — See individual theme and content files for specific licenses.
 Start Hugo dev server with live reload.
 
 ```bash
-docker run --rm -p 1313:1313 -v "$(pwd):/src" klakegg/hugo:ext-debian server -D --bind 0.0.0.0
+docker run --rm -p 1313:1313 -v "$(pwd):/src" klakegg/hugo:busybox server -D --bind 0.0.0.0
 ```
 
 ### build
@@ -69,7 +69,7 @@ docker run --rm -p 1313:1313 -v "$(pwd):/src" klakegg/hugo:ext-debian server -D 
 Production build.
 
 ```bash
-docker run --rm -v "$(pwd):/src" klakegg/hugo:ext-debian --gc --minify --cleanDestinationDir
+docker run --rm -v "$(pwd):/src" klakegg/hugo:busybox --gc --minify --cleanDestinationDir
 ```
 
 ### clean
