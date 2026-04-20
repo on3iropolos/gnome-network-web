@@ -17,7 +17,7 @@ tags:
   - dark
 features:
   - responsive
-min_version: 0.90.0
+min_version: 0.160.1
 author:
   name: Adelore Lessard
   homepage: https://gnome.network/

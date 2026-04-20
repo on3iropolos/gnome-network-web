@@ -7,13 +7,24 @@
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme-preference');
+            if (!theme) {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <link rel="stylesheet" href="{{ "shell/css/terminal-0.7.4.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "shell/css/console.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "shell/css/theme-toggle.css" | absURL }}">
     {{- partial "favicon.html" . -}}
     {{ with .OutputFormats.Get "RSS" }}
       {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
     {{ end }}
     {{- partial "header.html" . -}}
+    {{- partial "seo.html" . -}}
 </head>
 <body class="terminal">
     <div class="container">
@@ -46,5 +57,6 @@
         {{ end }}
         {{ partial "footer.html" . }}
     </div>
+    <script src="{{ "shell/js/theme-toggle.js" | absURL }}"></script>
   </body>
 </html>

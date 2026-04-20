@@ -15,6 +15,11 @@
 {{ with .Site.GetPage "/posts" }}
     {{ range first 3 (sort .Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
         <div class="post">
+            {{ with .Params.featured_image }}
+            <a href="{{ $.Permalink }}" title="{{ $.Title }}">
+                <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="featured-image">
+            </a>
+            {{ end }}
             <p>
                 <div class="date">{{ .Date | time.Format ":date_medium" }}</div>
                 <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
