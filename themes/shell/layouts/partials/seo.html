@@ -1,0 +1,81 @@
+{{- $scr := .Scratch -}}
+{{- with .Page -}}
+{{- $scr.Set "title" .Title -}}
+{{- $scr.Set "description" .Description -}}
+{{- $scr.Set "image" .Params.featured_image -}}
+{{- $scr.Set "published" .Date -}}
+{{- $scr.Set "updated" .Lastmod -}}
+{{- else -}}
+{{- $scr.Set "title" $.Site.Title -}}
+{{- $scr.Set "description" $.Site.Params.description -}}
+{{- $scr.Set "image" $.Site.Params.featured_image -}}
+{{- end -}}
+{{- $title := $scr.Get "title" -}}
+{{- $desc := $scr.Get "description" -}}
+{{- $image := $scr.Get "image" -}}
+{{- $site := .Site -}}
+{{- $Permalink := .Permalink -}}
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ $Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{- with $image -}}
+<meta property="og:image" content="{{ $image | absURL }}">
+{{- end -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+{{- with $image -}}
+<meta name="twitter:image" content="{{ $image | absURL }}">
+{{- end -}}
+{{- with $site.Params.author -}}
+<meta name="author" content="{{ . }}">
+{{- end -}}
+{{- if .IsPage -}}
+{{- with $scr.Get "published" -}}
+<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">
+{{- end -}}
+{{- with $scr.Get "updated" -}}
+<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">
+{{- end -}}
+{{- end -}}
+{{- with $site.Params.google_verify -}}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end -}}
+{{- with $site.Params.bing_verify -}}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end -}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
+    "name": "{{ $title }}",
+    "url": "{{ $Permalink }}",
+    {{- if .IsPage -}}
+    {{- with $scr.Get "published" -}}
+    "datePublished": "{{ .Format "2006-01-02T15:04:05-07:00" }}",
+    {{- end -}}
+    {{- with $scr.Get "updated" -}}
+    "dateModified": "{{ .Format "2006-01-02T15:04:05-07:00" }}",
+    {{- end -}}
+    {{- end -}}
+    {{- with $desc -}}
+    "description": "{{ . }}",
+    {{- end -}}
+    {{- with $image -}}
+    "image": "{{ . | absURL }}",
+    {{- end -}}
+    "author": {
+        "@type": "Person",
+        "name": "{{ $site.Params.author | default $site.Title }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $site.Title }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ $site.Param "logo" | absURL }}"
+        }
+    }
+}
+</script>

@@ -90,7 +90,7 @@ h6,
 }
 
 h1 {
-    margin-bottom: 150px;
+    margin-bottom: 1.5em;
 }
 
 strong {
@@ -118,6 +118,7 @@ figure {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     overflow: hidden;
+    position: relative;
 }
 
 .terminal-session .terminal-prompt {
@@ -236,6 +237,15 @@ figure {
 
 .post {
     margin-bottom: 1.5em;
+}
+
+.post .featured-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
 }
 
 .post h1,
