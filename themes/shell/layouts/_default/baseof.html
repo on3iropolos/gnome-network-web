@@ -29,6 +29,7 @@
 <body class="terminal">
     <div class="container">
         <div class="terminal-session">
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"></button>
             <div class="terminal-prompt">
               <span class="prompt-user">{{ .Site.Params.shell.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.shell.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.shell.path | default "~" }}</span><span class="prompt-char">$</span>
               <span class="prompt-command">echo $ASCI_ART</span>

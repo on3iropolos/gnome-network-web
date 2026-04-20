@@ -19,19 +19,7 @@
     }
 
     function init() {
-        if (!document.getElementById(TOGGLE_BTN)) {
-            const btn = document.createElement('button');
-            btn.id = TOGGLE_BTN;
-            btn.className = 'theme-toggle';
-            btn.type = 'button';
-            btn.setAttribute('aria-label', 'Toggle theme');
-            const terminalSession = document.querySelector('.terminal-session');
-            if (terminalSession) {
-                terminalSession.appendChild(btn);
-            } else {
-                document.body.appendChild(btn);
-            }
-        }
+        // Button is now in template, just verify it exists
 
         const theme = getPreference();
         setTheme(theme);
