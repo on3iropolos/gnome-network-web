@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+<div class="terminal-output">
+    <div class="terminal-header">
+        <span class="terminal-title">~/{{ .File.Path | default .Title }}</span>
+    </div>
+    <div class="terminal-body">
+        {{ .Content }}
+    </div>
+</div>
+
+<div class="posts-list">
+{{ range .Paginator.Pages }}
+    <div class="post">
+        <p>
+            <div class="date">{{ .PublishDate.Format "Jan. 2, 2006" }}</div>
+            <h1><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+            {{ .Summary }}
+        </p>
+    </div>
+{{ end }}
+
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+<div class="pagination">
+    {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
+    {{ end }}
+    <span>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+    {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
+    {{ end }}
+</div>
+{{ end }}
+</div>
+
+{{ end }}

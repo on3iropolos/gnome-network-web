@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="terminal-output">
+    <div class="terminal-header">
+        <span class="terminal-title">{{ .File.Path | default .Title }}</span>
+    </div>
+    <div class="terminal-body">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

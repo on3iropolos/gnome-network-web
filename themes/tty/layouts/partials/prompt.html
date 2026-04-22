@@ -1,0 +1,7 @@
+{{- $username := .Site.Params.tty.username -}}
+{{- $hostname := .Site.Params.tty.hostname -}}
+{{- $path := .Site.Params.tty.path | default "~" -}}
+{{- $command := .command -}}
+<div class="terminal-prompt{{ if .cursor }} terminal-prompt-cursor{{ end }}">
+  <span class="prompt-user">{{ $username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ $hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ $path }}</span><span class="prompt-char">$</span>{{- with $command -}} <span class="prompt-command">{{ . }}</span>{{- end -}}
+</div>

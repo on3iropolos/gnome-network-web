@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }} - {{ .Page.Title }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme-preference');
+            if (!theme) {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="{{ "tty/css/terminal-0.7.4.min.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "tty/css/console.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "tty/css/theme-toggle.css" | absURL }}">
+    {{- partial "favicon.html" . -}}
+    {{ with .OutputFormats.Get "RSS" }}
+      {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
+    {{ end }}
+    {{- partial "header.html" . -}}
+    {{- partial "seo.html" . -}}
+</head>
+<body class="terminal">
+    <div class="container">
+        <div class="terminal-session">
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"></button>
+            <div class="terminal-prompt">
+              <span class="prompt-user">{{ .Site.Params.tty.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.tty.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.tty.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">echo $ASCI_ART</span>
+            </div>
+            <div class="terminal-ls-output">
+{{ partial "ascii.html" . }}
+            </div>
+            <div class="terminal-prompt">
+              <span class="prompt-user">{{ .Site.Params.tty.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.tty.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.tty.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">ls</span>
+            </div>
+            <div class="terminal-ls-output">
+              {{ range .Site.Menus.main }}
+                <div><a href="{{ .URL }}" class="ls-entry">{{ .Name }}</a></div>
+              {{ end }}
+            </div>
+            <div class="terminal-prompt terminal-prompt-cursor">
+              <span class="prompt-user">{{ .Site.Params.tty.username }}</span><span class="prompt-at">@</span><span class="prompt-host">{{ .Site.Params.tty.hostname }}</span><span class="prompt-sep">:</span><span class="prompt-path">{{ .Site.Params.tty.path | default "~" }}</span><span class="prompt-char">$</span>
+              <span class="prompt-command">cat ~/{{ $p := replace (strings.TrimPrefix "/" (strings.TrimSuffix "/" .RelPermalink)) "/" "/" | lower }}{{ if $p }}{{ $p }}.md{{ else }}{{ lower .Title }}.md{{ end }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {{ block "main" . }}
+        {{ end }}
+        {{ partial "footer.html" . }}
+    </div>
+    <script src="{{ "tty/js/theme-toggle.js" | absURL }}"></script>
+  </body>
+</html>
