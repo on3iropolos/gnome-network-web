@@ -1,3 +1,5 @@
 [submodule "themes/tty"]
 	path = themes/tty
 	url = git@github.com:on3iropolos/hugo-theme-tty.git
+[submodule "tty"]
+	branch = main
