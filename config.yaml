@@ -25,6 +25,10 @@ menus:
 params:
   description: AWS Cloud Architect & Technical Leader
   author: Adelore Lessard
+  asciiArt: GNOME
   tty:
     username: user
     hostname: gnome.network
+    showTerminalHeader: false
+    showLatestPosts: false
+    showPostsList: true
