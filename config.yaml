@@ -28,3 +28,7 @@ params:
   tty:
     username: user
     hostname: gnome.network
+    path: ~
+    showTerminalHeader: false
+    showLatestPosts: false
+    showPostsList: true
